@@ -7,7 +7,6 @@
     const url = "https://api.douban.com/v2/movie/weekly?apikey=0b2bdeda43b5688921839c8ecb20399b";
 
     // 2.发送请求
-    
     final result = await HttpRequest.request(url);
     // 3.转成模型对象
     final subjects = result["subjects"];

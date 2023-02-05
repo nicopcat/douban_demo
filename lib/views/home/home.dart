@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:douban_movie_demo/models/home_models.dart';
 import 'package:douban_movie_demo/http_utils/home_request.dart';
+import 'package:douban_movie_demo/models/home_models.dart';
 import 'package:douban_movie_demo/views/home/components/movie_list_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,18 +27,13 @@ class HomeContent extends StatefulWidget{
 }
 
 class HomeContentState extends State{
-  int COUNT = 10;
+  List<MovieItem> movies = [];
 
   // 初始化首页的网络请求对象
   HomeRequest homeRequest = HomeRequest();
 
-  List<MovieItem> movies = [];
-
-
-
   void getMovieTopList() {
     homeRequest.getMovieTopList().then((result) {
-      print(result);
       setState(() {
         movies.addAll(result);
       });
